@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "commonjs", // Ensure CommonJS output for compatibility with Firebase Functions
+    "target": "es2017",
+    "outDir": "lib",
+    "rootDir": "src",
+    "esModuleInterop": true, // This allows compatibility between ES6 modules and CommonJS
+    "resolveJsonModule": true,
+    "strict": true,
+    "typeRoots": ["./node_modules/@types", "./src/types"]
+  },
+  "compileOnSave": true,
+  "include": ["src"]
+}
