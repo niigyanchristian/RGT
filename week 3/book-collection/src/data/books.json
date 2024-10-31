@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Rich Dad",
+    "author": "Christian",
+    "publicationDate": "string",
+    "genre": "string"
+  },
+  {
+    "id": 2,
+    "title": "Rich Dad",
+    "author": "Christian",
+    "publicationDate": "2001-09-03T00:00:00.000Z",
+    "genre": "string"
+  }
+]

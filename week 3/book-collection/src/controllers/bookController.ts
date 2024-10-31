@@ -10,13 +10,20 @@ export const createBook = (req: Request, res: Response) => {
 
   if (!title || !author || !publicationDate || !genre) {
     res.status(400).json({ message: 'All fields are required' });
+    return;
+  }
+
+  const date = new Date(publicationDate);
+  if (isNaN(date.getTime())) {
+    res.status(400).json({ message: 'Publication date must be a valid date' });
+    return;
   }
 
   const newBook: Book = {
     id: books.length + 1,
     title,
     author,
-    publicationDate,
+    publicationDate: date.toISOString(),
     genre,
   };
 
@@ -72,7 +79,9 @@ export const deleteBook = (req: Request, res: Response) => {
     res.status(404).json({ message: 'Book not found' });
   }
 
-  books.splice(bookIndex, 1);
+  const book = books.splice(bookIndex, 1);
+
+
   writeBooks(books);
-  res.status(204).send();
+  res.status(201).json(book[0]);
 };
